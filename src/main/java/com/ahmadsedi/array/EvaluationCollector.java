@@ -16,10 +16,10 @@ import java.util.stream.Collector;
  */
 
 public class EvaluationCollector implements Collector<Character, EvaluationAccumulator, Integer> {
-    private final List<Character> ruleCharList;
+    private final List<Character> patternCharList;
 
-    public EvaluationCollector(List<Character> ruleCharList) {
-        this.ruleCharList = ruleCharList;
+    public EvaluationCollector(List<Character> patternCharList) {
+        this.patternCharList = patternCharList;
     }
 
     @Override
@@ -33,10 +33,10 @@ public class EvaluationCollector implements Collector<Character, EvaluationAccum
     }
 
     private void consume(EvaluationAccumulator accumulator, Character ch){
-        if(ruleCharList.contains(ch)&&!accumulator.contains(ch)) {
+        if(patternCharList.contains(ch)&&!accumulator.contains(ch)) {
             accumulator.accumulate(ch);
         }
-        if(accumulator.containsAll(ruleCharList)){
+        if(accumulator.containsAll(patternCharList)){
             accumulator.addValueAndReset();
         }
     }
