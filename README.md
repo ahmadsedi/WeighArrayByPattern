@@ -1,6 +1,6 @@
 # Weigh Array Based on a Given Pattern
-~~~ 
 Given the following method:
+~~~ 
 public static int evaluate(char[] array, char[] rulePattern){
 ...
 }
